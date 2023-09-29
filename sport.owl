@@ -1,0 +1,491 @@
+Prefix(:=<http://www.semanticweb.org/amirm/ontologies/2022/9/SportApp#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/amirm/ontologies/2022/9/SportApp>
+Import(<http://www.w3.org/TR/skos-reference>)
+Import(<http://www.w3.org/TR/2009/REC-skos-reference-20090818/>)
+
+Declaration(Class(:Accueillant))
+Declaration(Class(:Arbitre))
+Declaration(Class(:Athlete))
+Declaration(Class(:Commentateur))
+Declaration(Class(:Competition))
+Declaration(Class(:DehorsStade))
+Declaration(Class(:EnStade))
+Declaration(Class(:Entraineur))
+Declaration(Class(:Equipe))
+Declaration(Class(:Internationale))
+Declaration(Class(:JoueurDeFootball))
+Declaration(Class(:JoueurDeTennis))
+Declaration(Class(:Journaliste))
+Declaration(Class(:Media))
+Declaration(Class(:MultiJoueur))
+Declaration(Class(:Nationale))
+Declaration(Class(:Partie))
+Declaration(Class(:Personne))
+Declaration(Class(:Personnel))
+Declaration(Class(:Salle))
+Declaration(Class(:Score))
+Declaration(Class(:Site_Web))
+Declaration(Class(:Spectateur))
+Declaration(Class(:Stade))
+Declaration(Class(:Television))
+Declaration(Class(:Terrain))
+Declaration(Class(:UnSeulJoueur))
+Declaration(Class(:Visiteur))
+Declaration(ObjectProperty(:admet))
+Declaration(ObjectProperty(:commente))
+Declaration(ObjectProperty(:diffuse))
+Declaration(ObjectProperty(:encourage))
+Declaration(ObjectProperty(:gagner))
+Declaration(ObjectProperty(:gére))
+Declaration(ObjectProperty(:hasPname))
+Declaration(ObjectProperty(:joindre))
+Declaration(ObjectProperty(:joueAvec))
+Declaration(ObjectProperty(:juge))
+Declaration(ObjectProperty(:maintient))
+Declaration(ObjectProperty(:participeDans))
+Declaration(ObjectProperty(:perdre))
+Declaration(ObjectProperty(:regarde))
+Declaration(ObjectProperty(:regarderDans))
+Declaration(ObjectProperty(:regarderPar))
+Declaration(DataProperty(:dateDebut))
+Declaration(DataProperty(:dateFin))
+Declaration(DataProperty(:name))
+Declaration(DataProperty(:nationalite))
+Declaration(DataProperty(:pname))
+Declaration(NamedIndividual(:Amir))
+Declaration(NamedIndividual(:Championsleague))
+Declaration(NamedIndividual(:Chaweli))
+Declaration(NamedIndividual(:Chelsea))
+Declaration(NamedIndividual(:Cristiano_Ronaldo))
+Declaration(NamedIndividual(:Dave))
+Declaration(NamedIndividual(:Federer))
+Declaration(NamedIndividual(:HamzaBalloumi))
+Declaration(NamedIndividual(:Jhon))
+Declaration(NamedIndividual(:JoueurDeFootball))
+Declaration(NamedIndividual(:JoueurDeTennis))
+Declaration(NamedIndividual(:Klopp))
+Declaration(NamedIndividual(:ManU))
+Declaration(NamedIndividual(:Manu_Chelsea))
+Declaration(NamedIndividual(:Nadal))
+Declaration(NamedIndividual(:Newcommentateur))
+Declaration(NamedIndividual(:Selmi))
+Declaration(NamedIndividual(:SlayerPlayer))
+Declaration(NamedIndividual(:Youssef))
+Declaration(NamedIndividual(:ahlem_barketi))
+Declaration(NamedIndividual(:allianz))
+Declaration(NamedIndividual(:amazon))
+Declaration(NamedIndividual(:amir))
+Declaration(NamedIndividual(:hiwar))
+Declaration(NamedIndividual(:ibtihel_kalthoum))
+Declaration(NamedIndividual(:messi))
+Declaration(NamedIndividual(:newJournaliste))
+Declaration(NamedIndividual(:newtrainer))
+Declaration(NamedIndividual(:neymar))
+Declaration(NamedIndividual(:nul))
+Declaration(NamedIndividual(:partie1))
+Declaration(NamedIndividual(:premierLeague))
+Declaration(NamedIndividual(:singleplayer1))
+Declaration(NamedIndividual(:site1))
+Declaration(NamedIndividual(:team1))
+Declaration(NamedIndividual(:team2))
+Declaration(NamedIndividual(:wataniya))
+Declaration(NamedIndividual(:worldcup))
+Declaration(NamedIndividual(:zwawi))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :admet (:admet)
+
+FunctionalObjectProperty(:admet)
+ObjectPropertyDomain(:admet :Partie)
+ObjectPropertyRange(:admet :Score)
+
+# Object Property: :commente (:commente)
+
+FunctionalObjectProperty(:commente)
+ObjectPropertyDomain(:commente :Commentateur)
+ObjectPropertyRange(:commente :Partie)
+
+# Object Property: :diffuse (:diffuse)
+
+FunctionalObjectProperty(:diffuse)
+ObjectPropertyDomain(:diffuse :Media)
+ObjectPropertyRange(:diffuse :Competition)
+
+# Object Property: :encourage (:encourage)
+
+FunctionalObjectProperty(:encourage)
+ObjectPropertyDomain(:encourage :Spectateur)
+ObjectPropertyRange(:encourage :Equipe)
+
+# Object Property: :gagner (:gagner)
+
+InverseObjectProperties(:gagner :perdre)
+FunctionalObjectProperty(:gagner)
+ObjectPropertyDomain(:gagner :Athlete)
+ObjectPropertyRange(:gagner :Partie)
+
+# Object Property: :gére (:gére)
+
+FunctionalObjectProperty(:gére)
+ObjectPropertyDomain(:gére :Entraineur)
+ObjectPropertyRange(:gére :Equipe)
+
+# Object Property: :hasPname (:hasPname)
+
+FunctionalObjectProperty(:hasPname)
+ObjectPropertyDomain(:hasPname :Partie)
+ObjectPropertyRange(:hasPname DataAllValuesFrom(:pname xsd:string))
+
+# Object Property: :joindre (:joindre)
+
+FunctionalObjectProperty(:joindre)
+ObjectPropertyDomain(:joindre :Athlete)
+ObjectPropertyRange(:joindre :Equipe)
+
+# Object Property: :joueAvec (:joueAvec)
+
+ReflexiveObjectProperty(:joueAvec)
+ObjectPropertyDomain(:joueAvec :Athlete)
+ObjectPropertyRange(:joueAvec :Athlete)
+
+# Object Property: :juge (:juge)
+
+FunctionalObjectProperty(:juge)
+ObjectPropertyDomain(:juge :Arbitre)
+ObjectPropertyRange(:juge :Partie)
+
+# Object Property: :maintient (:maintient)
+
+FunctionalObjectProperty(:maintient)
+ObjectPropertyDomain(:maintient :Personnel)
+ObjectPropertyRange(:maintient :Terrain)
+
+# Object Property: :participeDans (:participeDans)
+
+FunctionalObjectProperty(:participeDans)
+ObjectPropertyDomain(:participeDans :Athlete)
+ObjectPropertyRange(:participeDans :Competition)
+
+# Object Property: :perdre (:perdre)
+
+InverseFunctionalObjectProperty(:perdre)
+ObjectPropertyDomain(:perdre :Athlete)
+ObjectPropertyRange(:perdre :Partie)
+
+# Object Property: :regarde (:regarde)
+
+FunctionalObjectProperty(:regarde)
+ObjectPropertyDomain(:regarde :Spectateur)
+ObjectPropertyRange(:regarde :Competition)
+ObjectPropertyRange(:regarde :Partie)
+
+# Object Property: :regarderDans (:regarderDans)
+
+FunctionalObjectProperty(:regarderDans)
+ObjectPropertyDomain(:regarderDans :Spectateur)
+ObjectPropertyRange(:regarderDans :Terrain)
+
+# Object Property: :regarderPar (:regarderPar)
+
+InverseFunctionalObjectProperty(:regarderPar)
+ObjectPropertyDomain(:regarderPar :Partie)
+ObjectPropertyRange(:regarderPar :Spectateur)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :dateDebut (:dateDebut)
+
+FunctionalDataProperty(:dateDebut)
+DataPropertyDomain(:dateDebut :Partie)
+DataPropertyRange(:dateDebut xsd:dateTimeStamp)
+
+# Data Property: :dateFin (:dateFin)
+
+FunctionalDataProperty(:dateFin)
+DataPropertyDomain(:dateFin :Partie)
+DataPropertyRange(:dateFin xsd:dateTimeStamp)
+
+# Data Property: :name (:name)
+
+FunctionalDataProperty(:name)
+DataPropertyDomain(:name :Athlete)
+DataPropertyRange(:name xsd:string)
+
+# Data Property: :nationalite (:nationalite)
+
+FunctionalDataProperty(:nationalite)
+DataPropertyDomain(:nationalite :Athlete)
+DataPropertyRange(:nationalite xsd:string)
+
+# Data Property: :pname (:pname)
+
+FunctionalDataProperty(:pname)
+DataPropertyDomain(:pname :Partie)
+DataPropertyRange(:pname xsd:string)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :Accueillant (:Accueillant)
+
+SubClassOf(:Accueillant :MultiJoueur)
+
+# Class: :Arbitre (:Arbitre)
+
+SubClassOf(:Arbitre :Personne)
+
+# Class: :Athlete (:Athlete)
+
+EquivalentClasses(:Athlete ObjectMinCardinality(1 :joueAvec :Athlete))
+SubClassOf(:Athlete :Personne)
+
+# Class: :Commentateur (:Commentateur)
+
+EquivalentClasses(:Commentateur ObjectMaxCardinality(1 :commente :Partie))
+SubClassOf(:Commentateur :Personne)
+
+# Class: :Competition (:Competition)
+
+SubClassOf(:Competition owl:Thing)
+DisjointClasses(:Competition :Equipe)
+
+# Class: :DehorsStade (:DehorsStade)
+
+SubClassOf(:DehorsStade :Spectateur)
+
+# Class: :EnStade (:EnStade)
+
+SubClassOf(:EnStade :Spectateur)
+
+# Class: :Entraineur (:Entraineur)
+
+EquivalentClasses(:Entraineur ObjectMaxCardinality(1 :gére :Equipe))
+SubClassOf(:Entraineur :Personne)
+
+# Class: :Equipe (:Equipe)
+
+EquivalentClasses(:Equipe ObjectMinCardinality(1 :joindre :Competition))
+SubClassOf(:Equipe owl:Thing)
+DisjointClasses(:Equipe :Personne)
+DisjointClasses(:Equipe :Terrain)
+
+# Class: :Internationale (:Internationale)
+
+SubClassOf(:Internationale :Competition)
+
+# Class: :JoueurDeFootball (:JoueurDeFootball)
+
+SubClassOf(:JoueurDeFootball :Athlete)
+
+# Class: :JoueurDeTennis (:JoueurDeTennis)
+
+SubClassOf(:JoueurDeTennis :Athlete)
+
+# Class: :Journaliste (:Journaliste)
+
+SubClassOf(:Journaliste :Personne)
+
+# Class: :Media (:Media)
+
+SubClassOf(:Media owl:Thing)
+
+# Class: :MultiJoueur (:MultiJoueur)
+
+SubClassOf(:MultiJoueur :Equipe)
+
+# Class: :Nationale (:Nationale)
+
+SubClassOf(:Nationale :Competition)
+
+# Class: :Partie (:Partie)
+
+EquivalentClasses(:Partie ObjectMinCardinality(1 :regarderPar :Spectateur))
+SubClassOf(:Partie owl:Thing)
+
+# Class: :Personne (:Personne)
+
+SubClassOf(:Personne owl:Thing)
+DisjointClasses(:Personne :Terrain)
+
+# Class: :Personnel (:Personnel)
+
+SubClassOf(:Personnel :Personne)
+
+# Class: :Salle (:Salle)
+
+SubClassOf(:Salle :Terrain)
+
+# Class: :Score (:Score)
+
+SubClassOf(:Score owl:Thing)
+
+# Class: :Site_Web (:Site_Web)
+
+SubClassOf(:Site_Web :Media)
+
+# Class: :Spectateur (:Spectateur)
+
+EquivalentClasses(:Spectateur ObjectMinCardinality(1 :encourage :Equipe))
+EquivalentClasses(:Spectateur ObjectMinCardinality(1 :regarde :Partie))
+SubClassOf(:Spectateur :Personne)
+
+# Class: :Stade (:Stade)
+
+SubClassOf(:Stade :Terrain)
+
+# Class: :Television (:Television)
+
+SubClassOf(:Television :Media)
+
+# Class: :Terrain (:Terrain)
+
+SubClassOf(:Terrain owl:Thing)
+
+# Class: :UnSeulJoueur (:UnSeulJoueur)
+
+SubClassOf(:UnSeulJoueur :Equipe)
+
+# Class: :Visiteur (:Visiteur)
+
+SubClassOf(:Visiteur :MultiJoueur)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :Championsleague (:Championsleague)
+
+ClassAssertion(:Internationale :Championsleague)
+
+# Individual: :Chaweli (:Chaweli)
+
+ClassAssertion(:Commentateur :Chaweli)
+
+# Individual: :Chelsea (:Chelsea)
+
+ClassAssertion(:Visiteur :Chelsea)
+
+# Individual: :Dave (:Dave)
+
+ClassAssertion(:EnStade :Dave)
+
+# Individual: :Federer (:Federer)
+
+ClassAssertion(:JoueurDeTennis :Federer)
+
+# Individual: :HamzaBalloumi (:HamzaBalloumi)
+
+ClassAssertion(:Journaliste :HamzaBalloumi)
+
+# Individual: :Jhon (:Jhon)
+
+ClassAssertion(:DehorsStade :Jhon)
+
+# Individual: :Klopp (:Klopp)
+
+ClassAssertion(:Entraineur :Klopp)
+
+# Individual: :ManU (:ManU)
+
+ClassAssertion(:Accueillant :ManU)
+
+# Individual: :Manu_Chelsea (:Manu_Chelsea)
+
+ClassAssertion(:Partie :Manu_Chelsea)
+
+# Individual: :Nadal (:Nadal)
+
+ClassAssertion(:JoueurDeTennis :Nadal)
+
+# Individual: :Newcommentateur (:Newcommentateur)
+
+AnnotationAssertion(rdfs:comment :Newcommentateur :Partie)
+
+# Individual: :Selmi (:Selmi)
+
+ClassAssertion(:Arbitre :Selmi)
+
+# Individual: :SlayerPlayer (:SlayerPlayer)
+
+ClassAssertion(:UnSeulJoueur :SlayerPlayer)
+
+# Individual: :Youssef (:Youssef)
+
+ClassAssertion(:Arbitre :Youssef)
+
+# Individual: :allianz (:allianz)
+
+ClassAssertion(:Stade :allianz)
+
+# Individual: :amazon (:amazon)
+
+ClassAssertion(:Site_Web :amazon)
+
+# Individual: :amir (:amir)
+
+ClassAssertion(:Personnel :amir)
+
+# Individual: :hiwar (:hiwar)
+
+ClassAssertion(:Television :hiwar)
+
+# Individual: :messi (:messi)
+
+ClassAssertion(:JoueurDeFootball :messi)
+
+# Individual: :neymar (:neymar)
+
+ClassAssertion(:JoueurDeFootball :neymar)
+
+# Individual: :nul (:nul)
+
+ClassAssertion(:Score :nul)
+
+# Individual: :partie1 (:partie1)
+
+ObjectPropertyAssertion(:hasPname :partie1 :partie1)
+DataPropertyAssertion(:pname :partie1 "match"^^xsd:string)
+
+# Individual: :premierLeague (:premierLeague)
+
+ClassAssertion(:Nationale :premierLeague)
+
+# Individual: :team1 (:team1)
+
+ClassAssertion(:MultiJoueur :team1)
+
+# Individual: :team2 (:team2)
+
+ClassAssertion(:MultiJoueur :team2)
+
+# Individual: :wataniya (:wataniya)
+
+ClassAssertion(:Television :wataniya)
+
+# Individual: :worldcup (:worldcup)
+
+ClassAssertion(:Internationale :worldcup)
+
+# Individual: :zwawi (:zwawi)
+
+ClassAssertion(:Salle :zwawi)
+
+
+)
