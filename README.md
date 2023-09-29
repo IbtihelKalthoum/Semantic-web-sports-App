@@ -2,9 +2,6 @@
 
 Welcome to the Semantic-web-sports-App repository! This application is a unique blend of semantic web technologies with the modern touch of sports tracking and analysis.
 
-## 🖥️ Live Preview
-
-(If you have a live preview, you can provide a link here, e.g., `[View Live App](https://yourappurl.com)`.)
 
 ## 🌟 Features
 
